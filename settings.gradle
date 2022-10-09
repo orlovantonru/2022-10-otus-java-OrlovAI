@@ -1,2 +1,3 @@
 rootProject.name = 'gradle_01'
+include 'hw01-gradle'
 
