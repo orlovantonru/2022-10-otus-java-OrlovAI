@@ -1,19 +1,22 @@
 plugins {
     id 'java'
+    id 'com.github.johnrengelman.shadow'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
-
-repositories {
-    mavenCentral()
-}
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 dependencies {
-    // https://mvnrepository.com/artifact/com.google.guava/guava
-    implementation 'com.google.guava:guava:31.1-jre'
+    implementation 'com.google.guava:guava'
 }
 
-test {
-    useJUnitPlatform()
+shadowJar {
+    archiveBaseName.set('gradleHelloWorld')
+    archiveVersion.set('0.1')
+    archiveClassifier.set('')
+    manifest {
+        attributes 'Main-Class': 'ru.otus.App'
+    }
 }
+
+tasks.build.dependsOn tasks.shadowJar
