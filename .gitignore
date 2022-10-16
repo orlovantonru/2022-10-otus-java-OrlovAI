@@ -1,4 +1,3 @@
-# Project exclude paths
 # Compiled class file
 *.class
 
@@ -37,3 +36,4 @@ out
 *.iws
 *.ipr
 *.idea
+
